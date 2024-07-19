@@ -51,16 +51,17 @@ function dataCategorizer(data, key){
            
          if(data[emp][key]===categoryValue){
         //    console.log(emp)
-            // resolve(data[emp] )
-             employeeDataOut.push([emp,data[emp]])
-         }
-         if(employeeDataOut){
-            resolve(employeeDataOut)
-         }
-         else{
-            reject("NO DATA FOUND")
-         }
+            // resolve(data[emp] )ṇ
+             employeeDataOut.push(emp,data[emp])
+          }
+        
          
+      }
+       
+        if (employeeDataOut.length>=1) {
+          resolve(employeeDataOut);
+        } else {
+          reject("NO DATA FOUND");
         }
 
     })
@@ -70,4 +71,7 @@ const categoryValue = '5'
 dataCategorizer(employeeDataIn, categoryKey)
 .then((emp)=>{
     console.log(emp)
+})
+.catch((abc)=>{
+    console.log(abc)
 })

@@ -45,7 +45,7 @@ const employeeDataIn = {
 
 function dataCategorizer(data, key){
     let employeeDataOut = []
-    return new Promise((resolve)=>{
+    return new Promise((resolve,reject)=>{
         
         for(let emp in data){
            
@@ -56,6 +56,9 @@ function dataCategorizer(data, key){
          }
          if(employeeDataOut){
             resolve(employeeDataOut)
+         }
+         else{
+            reject("NO DATA FOUND")
          }
          
         }
